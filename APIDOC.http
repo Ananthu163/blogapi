@@ -4,32 +4,58 @@ POST  http://127.0.0.1:8000/api/users/
 Content-Type: application/json
 
 {
-    "username":"django",
-    "email":"django@gmail.com",
-    "password":"password@123"
+    "username":"devara",
+    "email":"devara@gmail.com",
+    "password":"devara@123"
 }
 
 #Api for create a new post
 ###
 POST  http://127.0.0.1:8000/api/posts/
 Content-Type: application/json
-Authorization: Basic django:password@123
+Authorization: Token 066da50f73c55bfe340f7d85330f92ce86740723
 
 {
-    "title":"gm",
-    "description":"good morning all"
+    "title":"wow",
+    "description":"nyc"
 }
+
 # API for list all posts
 ###
 GET  http://127.0.0.1:8000/api/posts/
-Authorization: Basic django:password@123
+Authorization: Token 066da50f73c55bfe340f7d85330f92ce86740723
+
 
 # API for fetching post detail
 ###
-GET  http://127.0.0.1:8000/api/posts/1/
-Authorization: Basic django:password@123
+GET  http://127.0.0.1:8000/api/posts/5/
+Authorization: Token 066da50f73c55bfe340f7d85330f92ce86740723
+
 # Api for updating a post
 
 # Api for deleting a post
 
+# Api for adding a comment to a post
+###
+POST http://127.0.0.1:8000/api/posts/1/comments/
+Content-Type: application/json
+Authorization: Token 066da50f73c55bfe340f7d85330f92ce86740723
 
+{
+    "message":"nice"
+}
+
+###
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username":"devara",
+    "password":"devara@123"
+}
+ 
+
+#api call for liked post
+###
+POST http://127.0.0.1:8000/api/posts/1/like/
+Authorization: Token 066da50f73c55bfe340f7d85330f92ce86740723
